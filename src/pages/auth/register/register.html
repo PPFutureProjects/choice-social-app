@@ -1,0 +1,32 @@
+<ion-content class="no-scroll">
+  <div class="logo" text-center>
+    <img src="assets/images/logo.png" tappable (click)="navCtrl.setRoot('IntroPage')"/>
+  </div>
+  <div class="form">
+    <form [formGroup]="registerForm" (keydown)="keyDownFunction($event)">
+      <ion-list>
+        <ion-item no-lines>
+          <ion-input type="email" formControlName="email" [placeholder]="translate.get('auth.form.email')"></ion-input>
+        </ion-item>
+        <p text-center *ngIf="(registerForm.controls.email.hasError('required') || !registerForm.controls.email.valid) && hasError">{{ 'auth.form.error.email' | translate }}</p>
+        <ion-item no-lines>
+          <ion-input type="password" formControlName="password" [placeholder]="translate.get('auth.form.password')"></ion-input>
+        </ion-item>
+        <p text-center *ngIf="(registerForm.controls.password.hasError('required') || !registerForm.controls.password.valid) && hasError">{{ 'auth.form.error.password' | translate }}</p>
+        <ion-item no-lines>
+          <ion-input type="password" formControlName="confirmPassword" [placeholder]="translate.get('auth.form.confirm')"></ion-input>
+        </ion-item>
+        <p text-center *ngIf="(registerForm.controls.confirmPassword.hasError('required') || !registerForm.controls.confirmPassword.valid) && hasError">{{ 'auth.form.error.confirm' | translate }}</p>
+        <p text-center *ngIf="(registerForm.controls.confirmPassword.valid && (registerForm.value['password'] != registerForm.value['confirmPassword'])) && hasError">{{ 'auth.form.error.mismatch' | translate }}</p>
+        <div text-center margin-top>
+          <button ion-button color="primary" (click)="register()" [disabled]="!network.online()"><b>{{ 'auth.button.register' | translate }}</b></button>
+          <p>{{ 'auth.register.text' | translate }}</p>
+          <button ion-button color="dark" (click)="registerWithFacebook()" [disabled]="!network.online()"><ion-icon name="logo-facebook"></ion-icon><b>{{ 'auth.button.facebook' | translate }}</b></button>
+          <!-- <button ion-button color="dark" (click)="registerWithGoogle()" [disabled]="!network.online()"><ion-icon name="logo-google"></ion-icon><b>{{ 'auth.button.google' | translate }}</b></button> -->
+          <!-- <button ion-button color="dark" (click)="registerWithTwitter()" [disabled]="!network.online()"><ion-icon name="logo-twitter"></ion-icon><b>{{ 'auth.button.twitter' | translate }}</b></button> -->
+          <p>{{ 'auth.register.question' | translate }}<span (click)="navCtrl.setRoot('LoginPage')">{{ 'auth.register.question.button' | translate }}</span></p>
+        </div>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>

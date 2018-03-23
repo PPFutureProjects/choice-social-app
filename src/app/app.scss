@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +12,82 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.no-scroll .scroll-content {
+  overflow: hidden;
+}
+
+.toolbar-background {
+  background: color($colors, light) !important;
+  border-bottom: solid 0.1vh color($colors, light-gray) !important;
+}
+
+img {
+  object-fit: cover !important;
+}
+
+ion-menu {
+  ion-item:first-child {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+  }
+
+  ion-item:not(:first-child) {
+    border-top: solid 0.1vw color($colors, light-gray) !important;
+    border-bottom: solid 0.1vw color($colors, light-gray) !important;
+  }
+
+  ion-item.selected,
+  ion-item:active {
+    color: color($colors, gray);
+    background: color($colors, dark-gray);
+  }
+
+  div.profile {
+    width: 72vw;
+    position: absolute;
+    bottom: 2vh;
+
+    ion-item {
+      border-bottom: 0 !important;
+      color: color($colors, dark);
+
+      img {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+
+      h2 {
+        font-weight: bolder;
+        font-size: 1.1rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
+
+    ion-item.selected,
+    ion-item:active {
+      background: color($colors, light);
+      opacity: 0.75;
+    }
+
+    button {
+      color: color($colors, light);
+      font-size: 1.2rem;
+      width: 63.5vw;
+      margin-left: auto;
+      margin-right: auto;
+      height: 6.5vh;
+      border-radius: 0 !important;
+      margin-bottom: 1vh;
+    }
+  }
+
+  .iPhoneX {
+    div.profile {
+      bottom: 4vh !important;
+    }
+  }
+}

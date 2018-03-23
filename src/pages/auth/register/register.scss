@@ -1,0 +1,53 @@
+page-register {
+  .content {
+    background: color($colors, light-gray) !important;
+  }
+  div.logo {
+    margin-top: 16vh;
+    img {
+      width: 50vw;
+    }
+  }
+  div.form {
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    background: color($colors, light) !important;
+    ion-icon {
+      margin-right: 2vw;
+      font-size: 2.4rem;
+    }
+    p {
+      color: color($colors, gray);
+      span {
+        color: color($colors, dark);
+      }
+      span.activated, span:active {
+        opacity: 0.75;
+      }
+    }
+    ion-list {
+      margin-top: 2.5vh;
+      ion-item {
+        border-left: solid 0.2vw color($colors, dark-gray) !important;
+        border-right: solid 0.2vw color($colors, dark-gray) !important;
+        border-top: solid 0.1vw color($colors, dark-gray) !important;
+        border-bottom: solid 0.1vw color($colors, dark-gray) !important;
+        background: color($colors, light-gray) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        font-size: 1.2rem !important;
+        width: 88vw !important;
+        height: 6.5vh !important;
+      }
+    }
+    button {
+      color: color($colors, light);
+      font-size: 1.2rem;
+      width: 88vw;
+      height: 6.5vh;
+      border-radius: 0 !important;
+      margin-bottom: 1vh;
+    }
+  }
+}

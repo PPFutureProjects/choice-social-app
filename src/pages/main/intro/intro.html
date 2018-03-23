@@ -1,0 +1,25 @@
+<ion-content class="no-scroll" [ngClass]="{'iPhoneX': iPhoneX}">
+  <ion-slides pager="true" id="slides">
+    <ion-slide>
+      <img src="assets/images/image.png"/>
+      <h3><b>{{ 'intro.slide1.title' | translate }}</b></h3>
+      <p>{{ 'intro.slide1.text' | translate }}</p>
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/images/image.png"/>
+      <h3><b>{{ 'intro.slide2.title' | translate }}</b></h3>
+      <p>{{ 'intro.slide2.text' | translate }}</p>
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/images/image.png"/>
+      <h3><b>{{ 'intro.slide3.title' | translate }}</b></h3>
+      <p>{{ 'intro.slide3.text' | translate }}</p>
+    </ion-slide>
+  </ion-slides>
+  <div class="filler-left" *ngIf="!slides.isBeginning()" [style.top]="getSlidesPosition()"></div>
+  <div class="filler-right" *ngIf="!slides.isEnd()" [style.top]="getSlidesPosition()"></div>
+  <div class="buttons" text-center>
+    <button ion-button color="primary" (click)="navCtrl.setRoot('LoginPage')"><b>{{ 'intro.button.login' | translate }}</b></button>
+    <button ion-button color="dark" (click)="navCtrl.setRoot('RegisterPage')"><b>{{ 'intro.button.register' | translate }}</b></button>
+  </div>
+</ion-content>

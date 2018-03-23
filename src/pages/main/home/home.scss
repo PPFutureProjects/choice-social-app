@@ -1,0 +1,73 @@
+page-home {
+  .scroll-content {
+    background-color: color($colors, light-gray);
+  }
+
+  ion-navbar {
+    img {
+      width: 6.75vw;
+      height: 6.75vw;
+      border-radius: 100%;
+    }
+
+    img.activated,
+    img:active {
+      opacity: 0.75;
+    }
+  }
+  ion-list {
+    margin-top: 0.5vh;
+
+    ion-list-header {
+      margin-left: 0.5vw;
+      font-size: 1.1rem;
+      border-bottom: solid 0.1vw color($colors, light-gray) !important;
+    }
+
+    ion-item {
+      border-bottom: solid 0.1vh color($colors, light-gray) !important;
+      color: color($colors, dark) !important;
+
+      img {
+        width: 4.5rem !important;
+        height: 4.5rem !important;
+      }
+
+      h2 {
+        font-weight: bolder !important;
+        font-size: 1.1rem !important;
+      }
+
+      p {
+        font-size: 1.2rem !important;
+      }
+    }
+
+    ion-item.selected,
+    ion-item:active {
+      background: color($colors, light);
+      opacity: 0.75;
+    }
+  }
+
+  ion-searchbar {
+    margin-top: 0.5vh;
+  }
+
+  .searchbar-ios.searchbar-left-aligned .searchbar-search-icon {
+    margin-left: 87vw;
+  }
+
+  .searchbar-ios .searchbar-search-icon {
+    content: url(http://svgshare.com/i/4qs.svg) !important;
+  }
+
+  .searchbar-input {
+    margin-left: -5vw;
+    width: 100vw;
+  }
+
+  .searchbar-clear-icon {
+    display: none !important;
+  }
+}

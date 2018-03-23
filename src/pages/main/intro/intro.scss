@@ -1,0 +1,77 @@
+page-intro {
+  .content {
+    background: color($colors, light-gray) !important;
+  }
+
+  button.swiper-pagination-bullet {
+    margin-left: 0.8vw !important;
+    margin-right: 0.8vw !important;
+    margin-bottom: 2vh !important;
+    border: solid 1px color($colors, gray) !important;
+    width: 8px !important;
+    height: 8px !important;
+  }
+
+  button.swiper-pagination-bullet-active {
+    background: color($colors, light) !important;
+  }
+
+  ion-slides {
+    background: color($colors, light);
+    height: 72.5vh;
+    width: 88vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4vh;
+    ion-slide {
+      color: color($colors, dark);
+      img {
+        width: 50vw !important;
+      }
+      h3 {
+        font-size: 3.2rem;
+        letter-spacing: -0.1rem;
+      }
+      p {
+        color: color($colors, gray);
+        margin-left: auto;
+        margin-right: auto;
+        width: 70vw;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  div.filler-left, div.filler-right {
+    width: 2.5vw;
+    height: 72.5vh;
+    background: color($colors, light);
+    position: absolute;
+  }
+
+  div.filler-left {
+    left: 0;
+  }
+
+  div.filler-right {
+    right: 0;
+  }
+
+  div.buttons {
+    margin-top: 2vh;
+    button {
+      color: color($colors, light);
+      font-size: 1.2rem;
+      width: 88vw;
+      height: 6.5vh;
+      border-radius: 0 !important;
+      margin-bottom: 1vh;
+    }
+  }
+
+  .iPhoneX {
+    ion-slides {
+      margin-top: 1.5vh;
+    }
+  }
+}

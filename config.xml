@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>zigi</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="com.paulcham.apps.firestarter" version="1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Firestarter</name>
+    <description>Premium Ionic 3 Firebase Starter.</description>
+    <author email="paulcham91@gmail.com" href="mailto:paulcham91@gmail.com">Paul Cham</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -15,10 +15,14 @@
     <preference name="android-minSdkVersion" value="16" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
-    <preference name="FadeSplashScreenDuration" value="300" />
-    <preference name="SplashShowOnlyFirstTime" value="false" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="FadeSplashScreenDuration" value="1000" />
     <preference name="SplashScreen" value="screen" />
-    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="ShowSplashScreen" value="true" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="SplashShowOnlyFirstTime" value="false" />
+    <preference name="FadeSplashScreen" value="true" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -75,10 +79,47 @@
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
+        <preference default="Allow Firestarter to use your camera to take photos." name="CAMERA_USAGE_DESCRIPTION" />
+        <config-file parent="NSCameraUsageDescription" target="*-Info.plist">
+            <string>Allow Firestarter to use your camera to take photos.</string>
+        </config-file>
+        <preference default="Allow Firestarter to access your photos to select photos." name="PHOTOLIBRARY_USAGE_DESCRIPTION" />
+        <config-file parent="NSPhotoLibraryUsageDescription" target="*-Info.plist">
+            <string>Allow Firestarter to access your photos to select photos.</string>
+        </config-file>
     </platform>
-    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
-    <plugin name="cordova-plugin-device" spec="^2.0.1" />
-    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
+    <allow-navigation href="http://192.168.1.15:8100" />
+    <allow-navigation href="http://192.168.1.10:8100" />
+    <preference name="TwitterConsumerKey" value="8LrirB4nVIN2NJ8XFONfINs51" />
+    <preference name="TwitterConsumerSecret" value="7DZI1ZRoe81cyx0hpiLH8I5djYF4WsfFd0qG8KZrCU5FgbHef4" />
+    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
+    <plugin name="cordova-plugin-device" spec="^1.1.4" />
+    <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
-    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.3.0" />
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
+        <variable name="APP_ID" value="885633358265882" />
+        <variable name="APP_NAME" value="Firestarter" />
+    </plugin>
+    <plugin name="cordova-plugin-file" spec="^5.0.0" />
+    <plugin name="cordova-plugin-camera" spec="^3.0.0">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="Allow Firestarter to use your camera to take photos." />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow Firestarter to access your photos to select photos." />
+    </plugin>
+    <plugin name="cordova-plugin-network-information" spec="^1.3.4" />
+    <plugin name="cordova-plugin-file-transfer" spec="^1.7.0" />
+    <plugin name="cordova-plugin-googleplus" spec="^5.1.1">
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.808785808427-h97f1rdvjva7qugqadmf12sdad90s4du" />
+    </plugin>
+    <plugin name="twitter-connect-plugin" spec="^0.6.0">
+        <variable name="FABRIC_KEY" value="6d543b556dbf09cb80164b3319011fa858150e58" />
+    </plugin>
+    <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
+    <allow-navigation href="http://192.168.1.9:8100" />
+    <allow-navigation href="http://192.168.1.17:8100" />
+    <allow-navigation href="http://192.168.1.8:8100" />
+    <allow-navigation href="http://192.168.1.16:8100" />
+    <engine name="android" spec="6.4.0" />
+    <engine name="ios" spec="^4.5.4" />
 </widget>

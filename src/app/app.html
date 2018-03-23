@@ -1,1 +1,28 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title><b>{{ 'auth.menu.title' | translate }}</b></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [ngClass]="{'iPhoneX': iPhoneX}">
+    <ion-list>
+      <ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)" no-lines>
+        {{p.title}}
+      </ion-item>
+    </ion-list>
+    <div class="profile" *ngIf="auth.getUserData()">
+      <ion-item no-lines tappable (click)="menuCtrl.close(); nav.push('UpdateProfilePage')">
+        <ion-avatar item-start>
+          <img-loader [src]="auth.getUserData().photo"></img-loader>
+        </ion-avatar>
+        <h2 text-uppercase>{{ auth.getUserData().firstName }} {{ auth.getUserData().lastName }}</h2>
+        <p text-lowercase>{{ auth.getUserData().username }}</p>
+      </ion-item>
+      <button ion-button block color="dark" (click)="logout()" [disabled]="!network.online()"><b>{{ 'auth.button.logout' | translate }}</b></button>
+    </div>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

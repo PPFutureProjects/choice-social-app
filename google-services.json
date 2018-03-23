@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "808785808427",
+    "firebase_url": "https://firestarter-22aaf.firebaseio.com",
+    "project_id": "firestarter-22aaf",
+    "storage_bucket": "firestarter-22aaf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:808785808427:android:d9a4866892a82ec9",
+        "android_client_info": {
+          "package_name": "com.paulcham.apps.firestarter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "808785808427-7akk41gn4qkfelj4pghipj3rrm5vt6fj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.paulcham.apps.firestarter",
+            "certificate_hash": "370af733af574eac8cb18dede7a80f53eb4106b0"
+          }
+        },
+        {
+          "client_id": "808785808427-75h0objp7eq3nehkr6mhin72glpr7sl6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPiv_NOsqOibo71BMGhDrpo6bAoX-8Udg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "808785808427-75h0objp7eq3nehkr6mhin72glpr7sl6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "808785808427-h97f1rdvjva7qugqadmf12sdad90s4du.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.paulcham.apps.firestarter"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

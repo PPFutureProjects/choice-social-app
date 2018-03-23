@@ -1,0 +1,50 @@
+page-login {
+  .scroll-content {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../assets/images/background.png");
+    background-position: center center;
+  }
+
+  div.logo {
+    margin-top: 18vh;
+    img {
+      width: 68vw;
+    }
+  }
+
+  div.form {
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    ion-icon {
+      margin-right: 2vw;
+      font-size: 2.4rem;
+    }
+    p {
+      color: color($colors, gray);
+      span {
+        color: color($colors, dark);
+      }
+      span.activated, span:active {
+        opacity: 0.75;
+      }
+    }
+    ion-item {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      font-size: 1.2rem !important;
+      width: 88vw !important;
+      height: 6.5vh !important;
+    }
+    button {
+      color: color($colors, light);
+      font-size: 1.2rem;
+      width: 88vw;
+      height: 6.5vh;
+      border-radius: 0 !important;
+      margin-bottom: 1vh;
+    }
+  }
+
+}

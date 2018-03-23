@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><b>{{ 'auth.nav.title.create' | translate }}</b></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="profile" text-center>
+    <img-loader [src]="photo" tappable (click)="setPhoto()"></img-loader>
+  </div>
+  <div class="form">
+    <form [formGroup]="profileForm" (keydown)="keyDownFunction($event)">
+      <ion-list>
+        <ion-item no-lines margin-bottom>
+          <ion-input type="text" formControlName="firstName" [placeholder]="translate.get('auth.form.firstName')"></ion-input>
+        </ion-item>
+        <p text-center *ngIf="(profileForm.controls.firstName.hasError('required') || !profileForm.controls.firstName.valid) && hasError">{{ 'auth.form.error.firstName' | translate }}</p>
+        <ion-item no-lines margin-bottom>
+          <ion-input type="text" formControlName="lastName" [placeholder]="translate.get('auth.form.lastName')"></ion-input>
+        </ion-item>
+        <p text-center *ngIf="(profileForm.controls.lastName.hasError('required') || !profileForm.controls.lastName.valid) && hasError">{{ 'auth.form.error.lastName' | translate }}</p>
+        <ion-item no-lines margin-bottom>
+          <ion-input type="text" formControlName="username" [placeholder]="translate.get('auth.form.username')" (input)="onInput($event.target.value)"></ion-input>
+        </ion-item>
+        <p text-center *ngIf="(profileForm.controls.username.hasError('required') || !profileForm.controls.username.valid) && hasError">{{ 'auth.form.error.username' | translate }}</p>
+        <p text-center *ngIf="!uniqueUsername && profileForm.controls.username.valid && hasError">{{ 'auth.form.error.exists' | translate }}</p>
+        <ion-item no-lines margin-bottom>
+          <ion-input type="text" formControlName="email" [placeholder]="translate.get('auth.form.email')"></ion-input>
+        </ion-item>
+        <p text-center *ngIf="(profileForm.controls.email.hasError('required') || !profileForm.controls.email.valid) && hasError">{{ 'auth.form.error.email' | translate }}</p>
+        <div class="button" text-center>
+          <button ion-button color="primary" (click)="createProfile()" [disabled]="!network.online()"><b>{{ 'auth.button.create' | translate }}</b></button>
+        </div>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>

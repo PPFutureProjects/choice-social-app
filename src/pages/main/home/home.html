@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><b>{{ 'auth.menu.title.home' | translate }}</b></ion-title>
+    <ion-buttons end>
+      <button ion-button *ngIf="auth.getUserData()" (click)="navCtrl.push('UpdateProfilePage')">
+        <img-loader [src]="auth.getUserData().photo"></img-loader>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-searchbar [(ngModel)]="searchUser" [placeholder]="translate.get('home.search')"></ion-searchbar>
+  <ion-list *ngIf="users">
+    <ion-list-header *ngIf="(users | async | usersFilter: [excludedIds, searchUser])?.length > 0">
+      <b>{{ translate.get('home.user') }}</b>
+    </ion-list-header>
+    <ion-item no-lines *ngFor="let user of users | async | slice:0:usersToShow | usersFilter: [excludedIds, searchUser]" tappable (click)="sendPushNotification(user)">
+      <ion-avatar item-start>
+        <img-loader [src]="user.photo"></img-loader>
+      </ion-avatar>
+      <h2 text-uppercase>{{ user.firstName }} {{ user.lastName }}</h2>
+      <p text-lowercase>{{ user.username }}</p>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())" [enabled]="(users | async)?.length > usersToShow">
+    <ion-infinite-scroll-content loadingSpinner="none"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
