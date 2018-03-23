@@ -1,18 +1,21 @@
 page-register {
   .content {
-    background: color($colors, light-gray) !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../../assets/imgs/login-bg.png");
+    background-position: center center;
   }
   div.logo {
     margin-top: 16vh;
     img {
-      width: 50vw;
+      width: 68vw;
     }
   }
   div.form {
     width: 100vw;
     position: absolute;
     bottom: 0;
-    background: color($colors, light) !important;
+    background: transparent !important;
     ion-icon {
       margin-right: 2vw;
       font-size: 2.4rem;
@@ -20,7 +23,7 @@ page-register {
     p {
       color: color($colors, gray);
       span {
-        color: color($colors, dark);
+        color: white;
       }
       span.activated, span:active {
         opacity: 0.75;
