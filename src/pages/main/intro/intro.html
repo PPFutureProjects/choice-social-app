@@ -1,25 +1,34 @@
 <ion-content class="no-scroll" [ngClass]="{'iPhoneX': iPhoneX}">
   <ion-slides pager="true" id="slides">
     <ion-slide>
-      <img src="assets/images/image.png"/>
-      <h3><b>{{ 'intro.slide1.title' | translate }}</b></h3>
-      <p>{{ 'intro.slide1.text' | translate }}</p>
+      <img src="assets/imgs/splash/1.png"/>
     </ion-slide>
     <ion-slide>
-      <img src="assets/images/image.png"/>
-      <h3><b>{{ 'intro.slide2.title' | translate }}</b></h3>
-      <p>{{ 'intro.slide2.text' | translate }}</p>
+      <img src="assets/imgs/splash/2.png"/>
     </ion-slide>
     <ion-slide>
-      <img src="assets/images/image.png"/>
-      <h3><b>{{ 'intro.slide3.title' | translate }}</b></h3>
-      <p>{{ 'intro.slide3.text' | translate }}</p>
+      <img src="assets/imgs/splash/3.png"/>
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/splash/4.png"/>
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/splash/5.png"/>
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/splash/6.png"/>
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/splash/7.png"/>
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/splash/8.png"/>
     </ion-slide>
   </ion-slides>
   <div class="filler-left" *ngIf="!slides.isBeginning()" [style.top]="getSlidesPosition()"></div>
   <div class="filler-right" *ngIf="!slides.isEnd()" [style.top]="getSlidesPosition()"></div>
   <div class="buttons" text-center>
-    <button ion-button color="primary" (click)="navCtrl.setRoot('LoginPage')"><b>{{ 'intro.button.login' | translate }}</b></button>
-    <button ion-button color="dark" (click)="navCtrl.setRoot('RegisterPage')"><b>{{ 'intro.button.register' | translate }}</b></button>
+    <button ion-button color="orange-button" (click)="navCtrl.setRoot('LoginPage')"><b>{{ 'intro.button.login' | translate }}</b></button>
+    <button ion-button color="facebook" (click)="navCtrl.setRoot('RegisterPage')"><b>{{ 'intro.button.register' | translate }}</b></button>
   </div>
 </ion-content>

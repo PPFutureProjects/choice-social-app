@@ -1,6 +1,9 @@
 page-intro {
   .content {
-    background: color($colors, light-gray) !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../../assets/imgs/login-bg.png");
+    background-position: center center;
   }
 
   button.swiper-pagination-bullet {
@@ -17,7 +20,7 @@ page-intro {
   }
 
   ion-slides {
-    background: color($colors, light);
+    background: transparent !important;
     height: 72.5vh;
     width: 88vw;
     margin-left: auto;
@@ -26,7 +29,7 @@ page-intro {
     ion-slide {
       color: color($colors, dark);
       img {
-        width: 50vw !important;
+        width: 75vw !important;
       }
       h3 {
         font-size: 3.2rem;
@@ -45,7 +48,7 @@ page-intro {
   div.filler-left, div.filler-right {
     width: 2.5vw;
     height: 72.5vh;
-    background: color($colors, light);
+    background: transparent;
     position: absolute;
   }
 
