@@ -2,7 +2,7 @@ page-login {
   .scroll-content {
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("../assets/images/background.png");
+    background-image: url("../../../assets/imgs/login-bg.png");
     background-position: center center;
   }
 
@@ -24,7 +24,7 @@ page-login {
     p {
       color: color($colors, gray);
       span {
-        color: color($colors, dark);
+        color: white;
       }
       span.activated, span:active {
         opacity: 0.75;

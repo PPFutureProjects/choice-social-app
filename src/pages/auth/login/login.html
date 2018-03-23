@@ -1,6 +1,6 @@
 <ion-content class="no-scroll">
   <div class="logo" text-center>
-    <img src="assets/images/logo.png" tappable (click)="navCtrl.setRoot('IntroPage')"/>
+    <img src="assets/imgs/logo-primary.png" tappable (click)="navCtrl.setRoot('IntroPage')"/>
   </div>
   <div class="form">
     <form [formGroup]="loginForm" (keydown)="keyDownFunction($event)">
@@ -14,12 +14,12 @@
         </ion-item>
         <p text-center *ngIf="(loginForm.controls.password.hasError('required') || !loginForm.controls.password.valid) && hasError">{{ 'auth.form.error.password' | translate }}</p>
         <div text-center>
-          <button ion-button color="primary" (click)="login()" [disabled]="!network.online()"><b>{{ 'auth.button.login' | translate }}</b></button>
+          <button ion-button color="orange-button" (click)="login()" [disabled]="!network.online()"><b>{{ 'auth.button.login' | translate }}</b></button>
           <p>{{ 'auth.login.text' | translate }}</p>
-          <button ion-button color="dark" (click)="loginWithFacebook()" [disabled]="!network.online()"><ion-icon name="logo-facebook"></ion-icon><b>{{ 'auth.button.facebook' | translate }}</b></button>
+          <button ion-button color="facebook" (click)="loginWithFacebook()" [disabled]="!network.online()"><ion-icon name="logo-facebook"></ion-icon><b>{{ 'auth.button.facebook' | translate }}</b></button>
           <!-- <button ion-button color="dark" (click)="loginWithGoogle()" [disabled]="!network.online()"><ion-icon name="logo-google"></ion-icon><b>{{ 'auth.button.google' | translate }}</b></button> -->
           <!-- <button ion-button color="dark" (click)="loginWithTwitter()" [disabled]="!network.online()"><ion-icon name="logo-twitter"></ion-icon><b>{{ 'auth.button.twitter' | translate }}</b></button> -->
-          <p>{{ 'auth.login.question' | translate }}<span (click)="navCtrl.setRoot('RegisterPage')">{{ 'auth.login.question.button' | translate }}</span></p>
+          <p>{{ 'auth.login.question' | translate }}<span (click)="navCtrl.setRoot('RegisterPage')" class="white-text">{{ 'auth.login.question.button' | translate }}</span></p>
         </div>
       </ion-list>
     </form>
