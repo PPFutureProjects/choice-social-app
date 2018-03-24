@@ -54,6 +54,13 @@ page-update-profile {
         width: 88vw !important;
         height: 6.5vh !important;
       }
+
+      ion-item.textarea {
+        height: auto !important;
+        ion-textarea {
+          margin-left: -0.75vw;
+        }
+      }
       div {
         button {
           color: color($colors, light);
@@ -99,9 +106,18 @@ page-update-profile {
           width: 88vw;
           height: 6.5vh;
           border-radius: 0 !important;
-          margin-bottom: -2.5vh;
+          margin-bottom: -1vh;
+        }
+        button:last-child {
+          margin-bottom: -2vh;
         }
       }
+    }
+  }
+
+  .android {
+    ion-textarea {
+      margin-left: 0 !important;
     }
   }
 }

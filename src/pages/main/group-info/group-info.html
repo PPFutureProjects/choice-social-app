@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <ion-title *ngIf="group"><b>{{ group.title }}</b></ion-title>
+    <ion-buttons start>
+      <button ion-button tappable (click)="navCtrl.pop()"><ion-icon name="icon-close"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content [ngClass]="{'android': android}">
+  <div class="profile" text-center>
+    <img-loader [src]="group.photo" tappable (click)="setPhoto()" *ngIf="group"></img-loader>
+  </div>
+  <div class="form" *ngIf="group">
+    <ion-list>
+      <ion-item no-lines margin-bottom>
+        <ion-input type="text" [(ngModel)]="group.title" disabled></ion-input>
+      </ion-item>
+      <button ion-button item-end (click)="setTitle()" [disabled]="!network.online()"><ion-icon name="icon-edit"></ion-icon></button>
+    </ion-list>
+    <ion-list margin-top *ngIf="users" class="users">
+      <ion-list-header>
+        <b>{{ 'group.members' | translate }}</b>
+      </ion-list-header>
+      <ion-item no-lines *ngFor="let user of users" tappable (click)="viewProfile(user.userId)">
+        <ion-avatar item-start>
+          <img-loader [src]="user.photo"></img-loader>
+        </ion-avatar>
+        <h2 text-uppercase>{{ user.firstName }} {{ user.lastName }}</h2>
+        <p text-lowercase>{{ user.username }}</p>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+<ion-footer [ngClass]="{'iPhoneX': iPhoneX}">
+  <div text-center>
+    <button ion-button color="dark" *ngIf="group && group.members[0] == auth.getUserData().userId" (click)="modalCtrl.create('GroupMembersPage', { groupId: groupId }).present()" [disabled]="!network.online()"><b>{{ 'group.manage.members' | translate }}</b></button>
+    <button ion-button color="dark" *ngIf="group && group.members[0] != auth.getUserData().userId" (click)="modalCtrl.create('AddMemberPage', { groupId: groupId }).present()" [disabled]="!network.online()"><b>{{ 'group.add.members' | translate }}</b></button>
+    <button ion-button color="primary" *ngIf="group && group.members[0] != auth.getUserData().userId" (click)="leave()" [disabled]="!network.online()"><b>{{ 'group.leave.group' | translate }}</b></button>
+    <button ion-button color="primary" *ngIf="group && group.members[0] == auth.getUserData().userId && group.members.length == 1" (click)="delete()" [disabled]="!network.online()"><b>{{ 'group.delete.group' | translate }}</b></button>
+  </div>
+</ion-footer>

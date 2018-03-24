@@ -18,76 +18,189 @@
 }
 
 .toolbar-background {
-  background: color($colors, light) !important;
+  // background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../../assets/imgs/login-bg.png");
+  // background-position: center center;
   border-bottom: solid 0.1vh color($colors, light-gray) !important;
+}
+
+.bar-button-default-ios {
+  font-size: 2.5rem;
 }
 
 img {
   object-fit: cover !important;
 }
 
-ion-menu {
-  ion-item:first-child {
-    border-top: 0 !important;
-    border-bottom: 0 !important;
-  }
-
-  ion-item:not(:first-child) {
-    border-top: solid 0.1vw color($colors, light-gray) !important;
-    border-bottom: solid 0.1vw color($colors, light-gray) !important;
-  }
-
-  ion-item.selected,
-  ion-item:active {
-    color: color($colors, gray);
-    background: color($colors, dark-gray);
-  }
-
-  div.profile {
-    width: 72vw;
-    position: absolute;
-    bottom: 2vh;
-
-    ion-item {
-      border-bottom: 0 !important;
-      color: color($colors, dark);
-
-      img {
-        width: 4.5rem;
-        height: 4.5rem;
-      }
-
-      h2 {
-        font-weight: bolder;
-        font-size: 1.1rem;
-      }
-
-      p {
-        font-size: 1.2rem;
-      }
-    }
-
-    ion-item.selected,
-    ion-item:active {
-      background: color($colors, light);
-      opacity: 0.75;
-    }
-
-    button {
-      color: color($colors, light);
-      font-size: 1.2rem;
-      width: 63.5vw;
-      margin-left: auto;
-      margin-right: auto;
-      height: 6.5vh;
-      border-radius: 0 !important;
-      margin-bottom: 1vh;
+.tabs-ios .tabbar {
+  border-top: solid 1px color($colors, dark-gray);
+  background: color($colors, light);
+  border-bottom: 0 !important;
+  .tab-button {
+    height: 50px;
+    .tab-button-icon {
+      color: color($colors, gray) !important;
     }
   }
-
-  .iPhoneX {
-    div.profile {
-      bottom: 4vh !important;
+  .tab-button[aria-selected=true] {
+    .tab-button-icon {
+      color: color($colors, primary) !important;
     }
   }
+}
+
+ion-icon {
+  &[class*="icon-"] {
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    width: 1em;
+    height: 1em;
+  }
+  &[class*="icon-add"] {
+    mask-image: url(../assets/icons/add.svg);
+  }
+  &[class*="icon-facebook"] {
+    mask-image: url(../assets/icons/facebook.svg);
+  }
+  &[class*="icon-google"] {
+    mask-image: url(../assets/icons/google.svg);
+  }
+  &[class*="icon-twitter"] {
+    mask-image: url(../assets/icons/twitter.svg);
+  }
+  &[class*="icon-chat"] {
+    mask-image: url(../assets/icons/chat.svg);
+  }
+  &[class*="icon-group"] {
+    mask-image: url(../assets/icons/group.svg);
+  }
+  &[class*="icon-search"] {
+    mask-image: url(../assets/icons/search.svg);
+  }
+  &[class*="icon-config"] {
+    mask-image: url(../assets/icons/config.svg);
+  }
+  &[class*="icon-logout"] {
+    mask-image: url(../assets/icons/logout.svg);
+  }
+  &[class*="icon-compose"] {
+    mask-image: url(../assets/icons/compose.svg);
+  }
+  &[class*="icon-user-request"] {
+    mask-image: url(../assets/icons/user-request.svg);
+  }
+  &[class*="icon-add-user"] {
+    mask-image: url(../assets/icons/add-user.svg);
+  }
+  &[class*="icon-message"] {
+    mask-image: url(../assets/icons/message.svg);
+  }
+  &[class*="icon-close"] {
+    mask-image: url(../assets/icons/close.svg);
+  }
+  &[class*="icon-check"] {
+    mask-image: url(../assets/icons/check.svg);
+  }
+  &[class*="icon-empty-01"] {
+    mask-image: url(../assets/icons/empty-01.svg);
+  }
+  &[class*="icon-empty-02"] {
+    mask-image: url(../assets/icons/empty-02.svg);
+  }
+  &[class*="icon-empty-03"] {
+    mask-image: url(../assets/icons/empty-03.svg);
+  }
+  &[class*="icon-empty-04"] {
+    mask-image: url(../assets/icons/empty-04.svg);
+  }
+  &[class*="icon-attach"] {
+    mask-image: url(../assets/icons/attach.svg);
+  }
+  &[class*="icon-send"] {
+    mask-image: url(../assets/icons/send.svg);
+  }
+  &[class*="icon-user"] {
+    mask-image: url(../assets/icons/user.svg);
+  }
+  &[class*="icon-edit"] {
+    mask-image: url(../assets/icons/edit.svg);
+  }
+}
+
+// ion-menu {
+//   ion-item:first-child {
+//     border-top: 0 !important;
+//     border-bottom: 0 !important;
+//   }
+//
+//   ion-item:not(:first-child) {
+//     border-top: solid 0.1vw color($colors, light-gray) !important;
+//     border-bottom: solid 0.1vw color($colors, light-gray) !important;
+//   }
+//
+//   ion-item.selected,
+//   ion-item:active {
+//     color: color($colors, gray);
+//     background: color($colors, dark-gray);
+//   }
+//
+//   div.profile {
+//     width: 72vw;
+//     position: absolute;
+//     bottom: 2vh;
+//
+//     ion-item {
+//       border-bottom: 0 !important;
+//       color: color($colors, dark);
+//
+//       img {
+//         width: 4.5rem;
+//         height: 4.5rem;
+//       }
+//
+//       h2 {
+//         font-weight: bolder;
+//         font-size: 1.1rem;
+//       }
+//
+//       p {
+//         font-size: 1.2rem;
+//       }
+//     }
+//
+//     ion-item.selected,
+//     ion-item:active {
+//       background: color($colors, light);
+//       opacity: 0.75;
+//     }
+//
+//     button {
+//       color: color($colors, light);
+//       font-size: 1.2rem;
+//       width: 63.5vw;
+//       margin-left: auto;
+//       margin-right: auto;
+//       height: 6.5vh;
+//       border-radius: 0 !important;
+//       margin-bottom: 1vh;
+//     }
+//   }
+//
+//   .iPhoneX {
+//     div.profile {
+//       bottom: 4vh !important;
+//     }
+//   }
+// }
+
+
+ion-title {
+  color: white !important;
+}
+
+.toolbar-title {
+  color: white;
 }

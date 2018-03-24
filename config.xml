@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.paulcham.apps.firestarter" version="1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Firestarter</name>
-    <description>Premium Ionic 3 Firebase Starter.</description>
+<widget id="com.paulcham.apps.fire.line" version="1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Fireline</name>
+    <description>Premium Ionic 3 Firebase Messenger.</description>
     <author email="paulcham91@gmail.com" href="mailto:paulcham91@gmail.com">Paul Cham</author>
     <content src="index.html" />
     <access origin="*" />
@@ -79,13 +79,13 @@
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
-        <preference default="Allow Firestarter to use your camera to take photos." name="CAMERA_USAGE_DESCRIPTION" />
+        <preference default="Allow Fireline to use your camera to take photos." name="CAMERA_USAGE_DESCRIPTION" />
         <config-file parent="NSCameraUsageDescription" target="*-Info.plist">
-            <string>Allow Firestarter to use your camera to take photos.</string>
+            <string>Allow Fireline to use your camera to take photos.</string>
         </config-file>
-        <preference default="Allow Firestarter to access your photos to select photos." name="PHOTOLIBRARY_USAGE_DESCRIPTION" />
+        <preference default="Allow Fireline to access your photos to select photos." name="PHOTOLIBRARY_USAGE_DESCRIPTION" />
         <config-file parent="NSPhotoLibraryUsageDescription" target="*-Info.plist">
-            <string>Allow Firestarter to access your photos to select photos.</string>
+            <string>Allow Fireline to access your photos to select photos.</string>
         </config-file>
     </platform>
     <allow-navigation href="http://192.168.1.15:8100" />
@@ -98,14 +98,10 @@
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-statusbar" spec="^2.3.0" />
-    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
-        <variable name="APP_ID" value="885633358265882" />
-        <variable name="APP_NAME" value="Firestarter" />
-    </plugin>
     <plugin name="cordova-plugin-file" spec="^5.0.0" />
     <plugin name="cordova-plugin-camera" spec="^3.0.0">
-        <variable name="CAMERA_USAGE_DESCRIPTION" value="Allow Firestarter to use your camera to take photos." />
-        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow Firestarter to access your photos to select photos." />
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="Allow Fireline to use your camera to take photos." />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow Fireline to access your photos to select photos." />
     </plugin>
     <plugin name="cordova-plugin-network-information" spec="^1.3.4" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.0" />
@@ -116,10 +112,13 @@
         <variable name="FABRIC_KEY" value="6d543b556dbf09cb80164b3319011fa858150e58" />
     </plugin>
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
-    <allow-navigation href="http://192.168.1.9:8100" />
-    <allow-navigation href="http://192.168.1.17:8100" />
-    <allow-navigation href="http://192.168.1.8:8100" />
-    <allow-navigation href="http://192.168.1.16:8100" />
+    <plugin name="com-sarriaroman-photoviewer" spec="^1.1.11" />
+    <allow-navigation href="http://192.168.1.18:8100" />
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
+        <variable name="APP_ID" value="161693587881533" />
+        <variable name="APP_NAME" value="Fireline" />
+    </plugin>
+    <allow-navigation href="http://192.168.1.18:8101" />
+    <engine name="ios" spec="4.5.4" />
     <engine name="android" spec="6.4.0" />
-    <engine name="ios" spec="^4.5.4" />
 </widget>

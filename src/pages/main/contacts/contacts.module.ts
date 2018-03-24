@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
+import { ContactsPage } from './contacts';
 import { TranslateModule } from '@ngx-translate/core';
-import { HomePage } from './home';
 import { IonicImageLoader } from 'ionic-image-loader';
 import { PipesModule } from '../../../pipes/pipes.module';
 
 @NgModule({
   declarations: [
-    HomePage,
+    ContactsPage,
   ],
   imports: [
-    IonicPageModule.forChild(HomePage),
+    IonicPageModule.forChild(ContactsPage),
     TranslateModule.forChild(),
     IonicImageLoader,
     PipesModule
   ],
 })
-export class HomePageModule { }
+export class ContactsPageModule { }

@@ -42,6 +42,7 @@ $colors: (
   light-gray: #eee,
   dark-gray:  #ddd,
   gray:       #b2b2b2,
+  clear:      rgba(0, 0, 0, 0),
   orange-button: #da672a,
   facebook: #3b5998,
 );
@@ -63,6 +64,7 @@ b {
 }
 
 $menu-width: 270px;
+$refresher-icon-font-size: 0px;
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
@@ -75,7 +77,6 @@ $searchbar-ios-input-height: 44px;
 $searchbar-ios-input-search-icon-size: 1.2rem;
 // Clear the default svg icon since we'll use a custom svg in home.scss .searchbar-ios .searchbar-search-icon
 $searchbar-ios-input-search-icon-svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 0 0'></svg>";
-
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here

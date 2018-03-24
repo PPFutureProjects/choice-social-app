@@ -1,5 +1,5 @@
 {
-  "name": "firestarter",
+  "name": "fireline",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
@@ -30,6 +30,7 @@
     "@ionic-native/google-plus": "^4.5.2",
     "@ionic-native/keyboard": "^4.5.2",
     "@ionic-native/network": "^4.5.2",
+    "@ionic-native/photo-viewer": "^4.5.3",
     "@ionic-native/splash-screen": "4.4.0",
     "@ionic-native/status-bar": "4.4.0",
     "@ionic-native/twitter-connect": "^4.5.2",
@@ -37,25 +38,28 @@
     "@ngx-translate/core": "^9.0.2",
     "@ngx-translate/http-loader": "^2.0.1",
     "angularfire2": "^5.0.0-rc.4",
+    "com-sarriaroman-photoviewer": "^1.1.16",
     "cordova-android": "6.4.0",
-    "cordova-ios": "^4.5.4",
+    "cordova-ios": "4.5.4",
     "cordova-plugin-camera": "^3.0.0",
-    "cordova-plugin-device": "^1.1.4",
+    "cordova-plugin-device": "^1.1.7",
     "cordova-plugin-facebook4": "^1.9.1",
     "cordova-plugin-fcm": "^2.1.2",
     "cordova-plugin-file": "^5.0.0",
-    "cordova-plugin-file-transfer": "^1.7.0",
-    "cordova-plugin-googleplus": "^5.1.1",
+    "cordova-plugin-file-transfer": "^1.7.1",
+    "cordova-plugin-googleplus": "^5.2.1",
     "cordova-plugin-ionic-webview": "^1.1.16",
     "cordova-plugin-network-information": "^1.3.4",
-    "cordova-plugin-splashscreen": "^4.0.3",
-    "cordova-plugin-statusbar": "^2.3.0",
-    "cordova-plugin-whitelist": "^1.3.1",
+    "cordova-plugin-splashscreen": "^4.1.0",
+    "cordova-plugin-statusbar": "^2.4.1",
+    "cordova-plugin-whitelist": "^1.3.3",
     "firebase": "^4.8.2",
     "ionic-angular": "3.9.2",
     "ionic-image-loader": "^4.2.1",
     "ionic-plugin-keyboard": "^2.2.1",
     "ionicons": "3.0.0",
+    "moment": "^2.20.1",
+    "ng-elastic": "^1.0.0-beta.5",
     "rxjs": "5.5.2",
     "sw-toolbox": "3.6.0",
     "twitter-connect-plugin": "^0.6.0",
@@ -64,7 +68,7 @@
   "devDependencies": {
     "@ionic/app-scripts": "3.1.5",
     "typescript": "2.4.2",
-    "ws": "3.3.2"
+    "ws": "^3.3.2"
   },
   "description": "An Ionic project",
   "cordova": {
@@ -75,14 +79,10 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-statusbar": {},
-      "cordova-plugin-facebook4": {
-        "APP_ID": "885633358265882",
-        "APP_NAME": "Firestarter"
-      },
       "cordova-plugin-file": {},
       "cordova-plugin-camera": {
-        "CAMERA_USAGE_DESCRIPTION": "Allow Firestarter to use your camera to take photos.",
-        "PHOTOLIBRARY_USAGE_DESCRIPTION": "Allow Firestarter to access your photos to select photos."
+        "CAMERA_USAGE_DESCRIPTION": "Allow Fireline to use your camera to take photos.",
+        "PHOTOLIBRARY_USAGE_DESCRIPTION": "Allow Fireline to access your photos to select photos."
       },
       "cordova-plugin-network-information": {},
       "cordova-plugin-file-transfer": {},
@@ -92,11 +92,16 @@
       "twitter-connect-plugin": {
         "FABRIC_KEY": "6d543b556dbf09cb80164b3319011fa858150e58"
       },
-      "cordova-plugin-fcm": {}
+      "cordova-plugin-fcm": {},
+      "com-sarriaroman-photoviewer": {},
+      "cordova-plugin-facebook4": {
+        "APP_ID": "161693587881533",
+        "APP_NAME": "Fireline"
+      }
     },
     "platforms": [
-      "android",
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }

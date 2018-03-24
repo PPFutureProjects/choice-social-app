@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <ion-title *ngIf="partner"><b>{{ partner.firstName }}</b></ion-title>
+    <ion-buttons start>
+      <button ion-button tappable (click)="navCtrl.pop()"><ion-icon name="icon-close"></ion-icon></button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button tappable (click)="viewProfile(partner.userId)"><ion-icon name="icon-user"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-refresher *ngIf="conversation" (ionRefresh)="onRefresh($event)" [enabled]="messagesToShow < conversation.messages.length" snapbackDuration="500" closeDuration="500">
+    <ion-refresher-content pullingIcon="none"
+      pullingText=""
+      refreshingSpinner="circles"
+      refreshingText=""></ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="conversation" no-margin no-padding>
+    <ion-row *ngFor="let message of conversation.messages | slice:from:conversation.messages.length; last as last; index as index" tappable (click)="toggleDate(index, last)">
+      <ion-col class="profile" col-2 text-center *ngIf="message.sender == partner.userId" tappable (click)="viewProfile(partner.userId); $event.stopPropagation();"><img-loader [src]="partner.photo"></img-loader></ion-col>
+      <ion-col class="message" col-10 *ngIf="message.sender == partner.userId">
+        <p text-wrap float-left *ngIf="message.type == 0">{{ message.message }}</p>
+        <img float-left *ngIf="message.type == 1" class="message" [src]="message.message" tappable (click)="viewImage(message.message); $event.stopPropagation();"/>
+      </ion-col>
+      <ion-col class="sender" *ngIf="message.sender == auth.getUserData().userId">
+        <p text-wrap float-right *ngIf="message.type == 0">{{ message.message }}</p>
+        <img float-right *ngIf="message.type == 1" class="message" [src]="message.message" tappable (click)="viewImage(message.message); $event.stopPropagation();"/>
+      </ion-col>
+      <ion-col col-12 class="date" *ngIf="toggleDates[index]">
+        <p class="other" *ngIf="message.sender == partner.userId" text-left>{{ message.date | fromNow }}</p>
+        <p *ngIf="message.sender != partner.userId" text-right>{{ message.date | fromNow }}</p>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+<ion-footer [ngClass]="{'iPhoneX': iPhoneX, 'android': android}">
+  <div>
+    <ion-textarea #messageBox id="messageBox" fz-elastic type="text" [placeholder]="translate.get('chats.message.write')" [(ngModel)]="message" rows="1" (keydown)="keyDownFunction($event)" (ionBlur)="onBlur()" (ionFocus)="onFocus()"></ion-textarea>
+    <button ion-button icon-only clear (click)="attach()" *ngIf="!message" [disabled]="!network.online()"><ion-icon name="icon-attach"></ion-icon></button>
+    <button ion-button icon-only clear (click)="send()" *ngIf="message" [disabled]="!network.online()"><ion-icon name="icon-send"></ion-icon></button>
+  </div>
+</ion-footer>

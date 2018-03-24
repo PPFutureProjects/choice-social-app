@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <ion-title *ngIf="group"><b>{{ group.title }}</b></ion-title>
+    <ion-buttons start>
+      <button ion-button tappable (click)="navCtrl.pop()"><ion-icon name="icon-close"></ion-icon></button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button tappable (click)="modalCtrl.create('AddMemberPage', { groupId: groupId }).present()" [disabled]="!network.online()"><ion-icon name="icon-add-user"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div *ngIf="users">
+    <ion-searchbar [(ngModel)]="searchUser" [placeholder]="translate.get('home.search')"></ion-searchbar>
+    <ion-list>
+      <ion-list-header *ngIf="(users | usersFilter: [excludedIds, searchUser])?.length > 0">
+        <b>{{ translate.get('group.members') }}</b>
+      </ion-list-header>
+      <ion-item no-lines *ngFor="let user of users | usersFilter: [excludedIds, searchUser]" tappable (click)="viewProfile(user.userId)">
+        <ion-avatar item-start>
+          <img-loader [src]="user.photo"></img-loader>
+        </ion-avatar>
+        <h2 text-uppercase>{{ user.firstName }} {{ user.lastName }}</h2>
+        <p text-lowercase>{{ user.username }}</p>
+        <button ion-button item-end color="dark" (click)="remove(user); $event.stopPropagation();" *ngIf="user.userId != auth.getUserData().userId" [disabled]="!network.online()"><ion-icon name="icon-close"></ion-icon></button>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+<ion-footer [ngClass]="{'iPhoneX': iPhoneX}">
+  <div text-center>
+    <button ion-button color="primary" (click)="modalCtrl.create('AddMemberPage', { groupId: groupId }).present()" [disabled]="!network.online()"><b>{{ 'group.add.members' | translate }}</b></button>
+  </div>
+</ion-footer>

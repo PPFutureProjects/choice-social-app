@@ -1,4 +1,4 @@
-<ion-menu [content]="content">
+<!-- <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
       <ion-title><b>{{ 'auth.menu.title' | translate }}</b></ion-title>
@@ -22,7 +22,7 @@
       <button ion-button block color="dark" (click)="logout()" [disabled]="!network.online()"><b>{{ 'auth.button.logout' | translate }}</b></button>
     </div>
   </ion-content>
-</ion-menu>
+</ion-menu> -->
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

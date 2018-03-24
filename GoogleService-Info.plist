@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>808785808427-h97f1rdvjva7qugqadmf12sdad90s4du.apps.googleusercontent.com</string>
+	<string>393757267115-fnh4b0jhlvge2vvcmc8vgrt6hd3ts1e3.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.808785808427-h97f1rdvjva7qugqadmf12sdad90s4du</string>
+	<string>com.googleusercontent.apps.393757267115-fnh4b0jhlvge2vvcmc8vgrt6hd3ts1e3</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCFEPw126EV9rQqlojwnN6f9DCJpkycmuo</string>
+	<string>AIzaSyDp950pB0gH8an2EnH3U9wpPvf7ASwNwJQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>808785808427</string>
+	<string>393757267115</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.paulcham.apps.firestarter</string>
+	<string>com.paulcham.apps.fire.line</string>
 	<key>PROJECT_ID</key>
-	<string>firestarter-22aaf</string>
+	<string>fireline-e463f</string>
 	<key>STORAGE_BUCKET</key>
-	<string>firestarter-22aaf.appspot.com</string>
+	<string>fireline-e463f.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:808785808427:ios:d9a4866892a82ec9</string>
+	<string>1:393757267115:ios:de7af3a718809b5b</string>
 	<key>DATABASE_URL</key>
-	<string>https://firestarter-22aaf.firebaseio.com</string>
+	<string>https://fireline-e463f.firebaseio.com</string>
 </dict>
 </plist>

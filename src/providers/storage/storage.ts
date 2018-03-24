@@ -7,6 +7,7 @@ import firebase from 'firebase';
 @Injectable()
 export class StorageProvider {
   public profilePhoto: CameraOptions;
+  public photoMessage: CameraOptions;
 
   constructor(private camera: Camera, public file: File,
     private loading: LoadingProvider,
@@ -22,6 +23,14 @@ export class StorageProvider {
       encodingType: this.camera.EncodingType.JPEG,
       correctOrientation: true,
       allowEdit: true
+    };
+
+    this.photoMessage = {
+      quality: 50,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      correctOrientation: false,
+      allowEdit: false
     };
   }
 
@@ -47,16 +56,18 @@ export class StorageProvider {
 
   // Upload an image file provided the userId, cameraOptions, and sourceType.
   public upload(userId: string, options: CameraOptions, sourceType: number): Promise<string> {
-    this.profilePhoto.sourceType = sourceType;
+    options.sourceType = sourceType;
     return new Promise((resolve, reject) => {
       // Get the image file from camera or photo gallery.
-      this.camera.getPicture(this.profilePhoto).then(fileUri => {
+      this.camera.getPicture(options).then(fileUri => {
         this.loading.show();
         let fileName = JSON.stringify(fileUri).substr(JSON.stringify(fileUri).lastIndexOf('/') + 1);
         fileName = fileName.substr(0, fileName.length - 1);
         // Append the date string to the file name to make each upload unique.
         fileName = this.appendDateString(fileName);
         // Convert URI to Blob.
+        console.log("File: " + fileName);
+        console.log("FileURI: " + fileUri);
         this.uriToBlob(fileUri).then(blob => {
           let metadata = {
             'contentType': blob.type
@@ -67,16 +78,19 @@ export class StorageProvider {
             this.loading.hide();
             resolve(url);
           }).catch(err => {
+            console.log("ERROR STORAGE: " + JSON.stringify(err));
             this.loading.hide();
             reject();
             this.toast.show(this.translate.get('storage.upload.error'));
           });
         }).catch(err => {
+          console.log("ERROR BLOB: " + err);
           this.loading.hide();
           reject();
           this.toast.show(this.translate.get('storage.upload.error'));
         });
       }).catch(err => {
+        console.log("ERROR CAMERA: " + JSON.stringify(err));
         reject();
         this.toast.show(this.translate.get('storage.upload.error'));
       });

@@ -10,7 +10,7 @@ export namespace Environment {
   // Firebase Cloud Messaging Server Key.
   // Get your gcmKey on https://console.firebase.google.com, under Overview -> Project Settings -> Cloud Messaging.
   // This is needed to send push notifications.
-  export const gcmKey = 'AAAAvE9kDCs:APA91bH6ZpM_eY5JTRSPJQ9GDCRGwiVz_kHIyjQv5yt5vb1IjaPO6E0MnYYPg-LYudhLFjtjhoaW3_UbN5m8Q7wACRqYMaGI_HguvwhXEUN0fCrk22zrwPC5TjsEIo4HRC6O9TGwp6Jf';
+  export const gcmKey = 'AAAAW63DFKs:APA91bG3cNKXAIXte89kelXUmvt08lkCeUcSxyKNXHf90jNoc4nyCnzr8VMFXtmwzEi4OS4LNFmC5sT6g-VSKDIn8t5FJt3D3pDkkK3Ckc4Uy-Z2I5wwMx1XpM5Pm65UiOjXS_xfyR1d';
   // Set to your Firebase app, you can find your credentials on Firebase app console -> Add Web App.
   export const firebase = {
     apiKey: "AIzaSyAkETAXT5cZ9WCxFLNEip4LwENZq49ihMY",
@@ -21,7 +21,7 @@ export namespace Environment {
     messagingSenderId: "434618250965"
   };
   // You can find your googleWebClientId on your Firebase app console -> Authentication -> Sign-in Method -> Google -> Web client ID
-  export const googleWebClientId: string = '808785808427-75h0objp7eq3nehkr6mhin72glpr7sl6.apps.googleusercontent.com';
+  export const googleWebClientId: string = '393757267115-maknmm3b7q8vajvr1h0t5o5k2lld6i6l.apps.googleusercontent.com';
   // Loading Configuration.
   // Please refer to the official Loading documentation here: https://ionicframework.com/docs/api/components/loading/LoadingController/
   export const loading = {

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><b>{{ 'groups.nav.title' | translate }}</b></ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="compose()" [disabled]="!network.online()"><ion-icon name="icon-add"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content [ngClass]="{'android': android}">
+  <ion-searchbar *ngIf="groups" [(ngModel)]="searchGroup" [placeholder]="translate.get('home.search.group')"></ion-searchbar>
+  <!-- No group found with filter -->
+  <div text-center class="empty" *ngIf="(groups | groupsFilter: searchGroup)?.length == 0">
+    <ion-icon name="icon-empty-02"></ion-icon>
+    <h2><b>{{ 'groups.main.empty.nogroup.title' | translate }}</b></h2>
+    <p>{{ 'groups.main.empty.nogroup.text' | translate }}</p>
+  </div>
+  <ion-list>
+    <ion-item no-lines *ngFor="let group of groups | groupsFilter: searchGroup; index as index" tappable (click)="chat(group)">
+      <ion-badge item-right color="danger">{{ getUnreadMessages(group.groupId, group.messages) }}</ion-badge>
+      <ion-avatar item-start>
+        <img-loader [src]="group.photo"></img-loader>
+      </ion-avatar>
+      <h2 text-uppercase><span>{{ group.title }}</span><span text-lowercase>{{ getLastMessageDate(group.messages) | fromNow }}</span></h2>
+      <p text-wrap>{{ getLastMessage(group.messages) }}</p>
+    </ion-item>
+  </ion-list>
+  <!-- No groups yet -->
+  <div text-center class="empty" *ngIf="!groups">
+    <ion-icon name="icon-empty-03"></ion-icon>
+    <h2><b>{{ 'groups.main.empty.noconversations.title' | translate }}</b></h2>
+    <p>{{ 'groups.main.empty.noconversations.text' | translate }}</p>
+    <button ion-button color="dark" (click)="compose()" [disabled]="!network.online()"><b>{{ 'groups.main.empty.noconversations.button' | translate }}</b></button>
+  </div>
+</ion-content>

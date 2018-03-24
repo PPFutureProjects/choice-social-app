@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "808785808427",
-    "firebase_url": "https://firestarter-22aaf.firebaseio.com",
-    "project_id": "firestarter-22aaf",
-    "storage_bucket": "firestarter-22aaf.appspot.com"
+    "project_number": "393757267115",
+    "firebase_url": "https://fireline-e463f.firebaseio.com",
+    "project_id": "fireline-e463f",
+    "storage_bucket": "fireline-e463f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:808785808427:android:d9a4866892a82ec9",
+        "mobilesdk_app_id": "1:393757267115:android:de7af3a718809b5b",
         "android_client_info": {
-          "package_name": "com.paulcham.apps.firestarter"
+          "package_name": "com.paulcham.apps.fire.line"
         }
       },
       "oauth_client": [
         {
-          "client_id": "808785808427-7akk41gn4qkfelj4pghipj3rrm5vt6fj.apps.googleusercontent.com",
+          "client_id": "393757267115-ihnjio5mk2cafoerfh5bpho90vf0k8ks.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.paulcham.apps.firestarter",
+            "package_name": "com.paulcham.apps.fire.line",
             "certificate_hash": "370af733af574eac8cb18dede7a80f53eb4106b0"
           }
         },
         {
-          "client_id": "808785808427-75h0objp7eq3nehkr6mhin72glpr7sl6.apps.googleusercontent.com",
+          "client_id": "393757267115-maknmm3b7q8vajvr1h0t5o5k2lld6i6l.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBPiv_NOsqOibo71BMGhDrpo6bAoX-8Udg"
+          "current_key": "AIzaSyBM1z1YFW_2HiNtoNQYVS5pu4eHR3Lyv4U"
         }
       ],
       "services": {
@@ -40,15 +40,15 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "808785808427-75h0objp7eq3nehkr6mhin72glpr7sl6.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "808785808427-h97f1rdvjva7qugqadmf12sdad90s4du.apps.googleusercontent.com",
+              "client_id": "393757267115-fnh4b0jhlvge2vvcmc8vgrt6hd3ts1e3.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.paulcham.apps.firestarter"
+                "bundle_id": "com.paulcham.apps.fire.line"
               }
+            },
+            {
+              "client_id": "393757267115-maknmm3b7q8vajvr1h0t5o5k2lld6i6l.apps.googleusercontent.com",
+              "client_type": 3
             }
           ]
         },

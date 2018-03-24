@@ -13,7 +13,6 @@
 
   "intro.button.login": "GİRİŞ YAP",
   "intro.button.register": "KAYIT OL",
-
   "auth.menu.title": "Menu",
   "auth.menu.logout.title": "Çıkışı onayla?",
   "auth.menu.logout.text": "Çıkış yapmak istediğinize emin misiniz?",
@@ -30,6 +29,8 @@
   "auth.form.username": "Kullanıcı adı",
   "auth.form.error.username": "Kullanıcı adı yalnızca harf ve rakamlardan oluşmaktadır. 4 - 20 karakter arası olmalıdır.",
   "auth.form.error.exists": "Bu kullanıcı adı uygun değil",
+  "auth.form.bio": "Bio",
+  "auth.form.error.bio": "Please tell us about yourself",
   "auth.form.email": "Email",
   "auth.form.error.email": "Lütfen email adresinizi giriniz",
   "auth.form.password": "Şifre",
@@ -70,8 +71,17 @@
   "auth.profile.notifications": "BİLDİRİMLER",
   "auth.profile.push": "Push",
 
+  "profile.about": "ABOUT",
+  "profile.contacts": "CONTACTS",
+  "group.members": "MEMBERS",
+  "group.manage.members": "MANAGE MEMBERS",
+  "group.add.members": "ADD MEMBERS",
+  "group.leave.group": "LEAVE GROUP",
+  "group.delete.group": "DELETE GROUP",
+
   "home.user": "KULLANICI",
   "home.search": "Kullanıcı adı ya da isimle arama yapın",
+  "home.search.group": "Search for group",
   "home.send.text": "Aşağıya bir mesaj giriniz. Bu kullanıcıya push bildirim yollayacaktır.",
   "home.send.message": "Mesajınızı giriniz",
   "home.send.button.send": "Gönder",
@@ -84,5 +94,81 @@
   "notification.by": " tarafından ",
   "notification.sent": " size bir push mesaj yollandı: ",
 
-  "storage.upload.error": "Üzgünüz, fotoğraf yüklenirken bir hata oluştu."
+  "storage.upload.error": "Üzgünüz, fotoğraf yüklenirken bir hata oluştu.",
+
+  "contact.search.title": "Search Contact",
+  "contact.search.empty.nouserfound.title": "No User Found",
+  "contact.search.empty.nouserfound.text": "Uh-oh! Sorry but we couldn't find any user with that name or username",
+  "contact.search.empty.nousers.title": "No Users",
+  "contact.search.empty.nousers.text": "There are no users to show right now, please try again later when more users have signed up",
+  "contact.request.sent": "you sent a contact request",
+  "contact.request.received": "has sent you a contact request",
+
+  "contact.main.title": "Contacts",
+  "contact.main.empty.nocontactfound.title": "No Contact Found",
+  "contact.main.empty.nocontactfound.text": "Uh-oh! Sorry but we couldn't find any contact with that name or username",
+  "contact.main.empty.nocontacts.title": "No Contacts",
+  "contact.main.empty.nocontacts.text": "You have not added any contacts yet. Once you have added a contact, they will show up here",
+  "contact.main.empty.nocontacts.button": "SEARCH CONTACT",
+
+  "contact.requests.title": "Contact Requests",
+  "contact.requests.received": "RECEIVED",
+  "contact.requests.sent": "SENT",
+
+  "chats.nav.title": "Chats",
+  "chats.new.title": "New Conversation",
+  "chats.new.empty.nocontacts.text": "You have no contacts yet. Once you have a contact, you may start a conversation with them",
+  "chats.new.empty.nocontacts.button": "MANAGE CONTACTS",
+  "chats.message.sent.photo": "You sent a photo message.",
+  "chats.message.received.photo": "has sent you a photo message.",
+  "chats.message.you": "You: ",
+
+  "chats.message.write": "Write a message ...",
+  "chats.message.photo.title": "Send Photo Message",
+  "chats.message.photo.take": "Take a Photo",
+  "chats.message.photo.gallery": "Choose from Gallery",
+  "chats.message.photo.cancel": "Cancel",
+
+  "chats.main.empty.noconversation.title": "No Conversation Found",
+  "chats.main.empty.noconversation.text": "Uh-oh! Sorry but we couldn't find an existing conversation with that user",
+  "chats.main.empty.noconversations.title": "No Conversations",
+  "chats.main.empty.noconversations.text": "You have no conversations yet. Once you have any conversation, they will show up here",
+  "chats.main.empty.noconversations.button": "START A CONVERSATION",
+
+  "groups.nav.title": "Groups",
+  "groups.new.title": "New Group",
+
+  "groups.main.empty.nogroup.title": "No Group Found",
+  "groups.main.empty.nogroup.text": "Uh-oh! Sorry but we couldn't find an existing group with that title",
+  "groups.main.empty.noconversations.title": "No Groups",
+  "groups.main.empty.noconversations.text": "You have no group conversation yet. Once you have any group, they will show up here",
+  "groups.main.empty.noconversations.button": "START A GROUP",
+
+  "group.photo.title": "Group Photo",
+  "group.set.title": "Set Group Title",
+  "group.set.group.title": "Group Title",
+
+  "group.add.member.title": "Add Members",
+  "group.contacts.member.title": "Nothing To Show",
+  "group.contacts.member.text": "Uh-oh! Sorry but all your contacts are already a member of this group",
+  "group.alert.add.member.title": "Add Members?",
+  "group.alert.add.member.text": "Are you sure you want to add the following members to this group?",
+  "group.alert.add.button.add": "Yes",
+  "group.alert.add.button.cancel": "Cancel",
+  "group.alert.leave.title": "Leave Group?",
+  "group.alert.leave.text": "Are you sure you want to leave ",
+  "group.alert.leave.button.leave": "Leave",
+  "group.alert.leave.button.cancel": "Cancel",
+  "group.alert.delete.title": "Delete Group?",
+  "group.alert.delete.text": "Are you sure you want to delete ",
+  "group.alert.delete.button.delete": "Delete",
+  "group.alert.delete.button.cancel": "Cancel",
+  "group.alert.remove.title": "Remove Member?",
+  "group.alert.remove.text": "Are you sure you want to remove ",
+  "group.alert.remove.button.remove": "Remove",
+  "group.alert.remove.button.cancel": "Cancel",
+
+  "push.contact.sent": "has sent you a contact request.",
+  "push.contact.accepted": "has accepted your contact request.",
+  "push.message.photo": "has sent you a photo message."
 }

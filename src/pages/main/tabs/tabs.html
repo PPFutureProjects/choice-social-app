@@ -1,0 +1,6 @@
+<ion-tabs #tabs>
+  <ion-tab [root]="tab1Root" tabIcon="icon-chat" tabBadgeStyle="danger" tabBadge="{{ getUnreadMessages() }}"></ion-tab>
+  <ion-tab [root]="tab2Root" tabIcon="icon-group" tabBadgeStyle="danger" tabBadge="{{ getUnreadGroupMessages() }}"></ion-tab>
+  <ion-tab [root]="tab3Root" tabIcon="icon-search" tabBadgeStyle="danger" tabBadge="{{ getRequestsReceived() }}"></ion-tab>
+  <ion-tab [root]="tab4Root" tabIcon="icon-config"></ion-tab> 
+</ion-tabs>

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <ion-title><b>{{ 'chats.new.title' | translate }}</b></ion-title>
+    <ion-buttons start>
+      <button ion-button tappable (click)="navCtrl.pop()"><ion-icon name="icon-close"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content [ngClass]="{'android': android}">
+  <div *ngIf="contacts">
+    <ion-searchbar [(ngModel)]="searchUser" [placeholder]="translate.get('home.search')"></ion-searchbar>
+    <!-- No contact found with filter -->
+    <div text-center class="empty" *ngIf="(contacts | usersFilter: [excludedIds, searchUser])?.length == 0">
+      <ion-icon name="icon-empty-02"></ion-icon>
+      <h2><b>{{ 'contact.main.empty.nocontactfound.title' | translate }}</b></h2>
+      <p>{{ 'contact.main.empty.nocontactfound.text' | translate }}</p>
+    </div>
+    <ion-list>
+      <ion-list-header *ngIf="(contacts | usersFilter: [excludedIds, searchUser])?.length > 0">
+        <b>{{ translate.get('home.user') }}</b>
+      </ion-list-header>
+      <ion-item no-lines *ngFor="let user of contacts | usersFilter: [excludedIds, searchUser]" tappable (click)="chat(user.userId)">
+        <ion-avatar item-start>
+          <img-loader [src]="user.photo"></img-loader>
+        </ion-avatar>
+        <h2 text-uppercase>{{ user.firstName }} {{ user.lastName }}</h2>
+        <p text-lowercase>{{ user.username }}</p>
+        <button ion-button item-end (click)="chat(user.userId); $event.stopPropagation();" [disabled]="!network.online()"><ion-icon name="icon-message"></ion-icon></button>
+      </ion-item>
+    </ion-list>
+  </div>
+  <!-- No contacts yet -->
+  <div text-center class="empty" *ngIf="!contacts">
+    <ion-icon name="icon-empty-03"></ion-icon>
+    <h2><b>{{ 'contact.main.empty.nocontacts.title' | translate }}</b></h2>
+    <p>{{ 'chats.new.empty.nocontacts.text' | translate }}</p>
+    <button ion-button color="dark" (click)="viewCtrl.dismiss({ viewContacts: true })" [disabled]="!network.online()"><b>{{ 'chats.new.empty.nocontacts.button' | translate }}</b></button>
+  </div>
+</ion-content>

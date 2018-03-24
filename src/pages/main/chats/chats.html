@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><b>{{ 'chats.nav.title' | translate }}</b></ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="compose()" [disabled]="!network.online()"><ion-icon name="icon-compose"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content [ngClass]="{'android': android}">
+  <ion-searchbar *ngIf="conversations" [(ngModel)]="searchUser" [placeholder]="translate.get('home.search')"></ion-searchbar>
+  <!-- No conversation found with filter -->
+  <div text-center class="empty" *ngIf="(conversations | chatsFilter: searchUser)?.length == 0">
+    <ion-icon name="icon-empty-02"></ion-icon>
+    <h2><b>{{ 'chats.main.empty.noconversation.title' | translate }}</b></h2>
+    <p>{{ 'chats.main.empty.noconversation.text' | translate }}</p>
+  </div>
+  <ion-list>
+    <ion-item no-lines *ngFor="let conversation of conversations | chatsFilter: searchUser; index as index" tappable (click)="chat(conversation.conversationId)">
+      <ion-badge item-right color="danger">{{ getUnreadMessages(conversation.conversationId, conversation.messages) }}</ion-badge>
+      <ion-avatar item-start *ngIf="partners.get(conversation.conversationId)">
+        <img-loader [src]="partners.get(conversation.conversationId).photo"></img-loader>
+      </ion-avatar>
+      <h2 text-uppercase *ngIf="partners.get(conversation.conversationId)"><span>{{ partners.get(conversation.conversationId).firstName }} {{ partners.get(conversation.conversationId).lastName }}</span><span text-lowercase>{{ getLastMessageDate(conversation.messages) | fromNow }}</span></h2>
+      <p text-wrap *ngIf="partners.get(conversation.conversationId)">{{ getLastMessage(conversation.messages) }}</p>
+    </ion-item>
+  </ion-list>
+  <!-- No conversations yet -->
+  <div text-center class="empty" *ngIf="!conversations">
+    <ion-icon name="icon-empty-03"></ion-icon>
+    <h2><b>{{ 'chats.main.empty.noconversations.title' | translate }}</b></h2>
+    <p>{{ 'chats.main.empty.noconversations.text' | translate }}</p>
+    <button ion-button color="dark" (click)="compose()" [disabled]="!network.online()"><b>{{ 'chats.main.empty.noconversations.button' | translate }}</b></button>
+  </div>
+</ion-content>

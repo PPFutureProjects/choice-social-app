@@ -1,12 +1,12 @@
 <ion-header>
   <ion-navbar hideBackButton="true">
-    <ion-buttons start>
-      <button ion-button tappable (click)="navCtrl.pop()"><ion-icon name="md-close"></ion-icon></button>
-    </ion-buttons>
     <ion-title><b>{{ 'auth.nav.title.profile' | translate }}</b></ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="logout()"><ion-icon name="icon-logout"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content [ngClass]="{'android': android}">
   <div class="profile" text-center>
     <img-loader [src]="user.photo" tappable (click)="setPhoto()" *ngIf="user"></img-loader>
   </div>
@@ -30,6 +30,10 @@
           <ion-input type="text" formControlName="email" [placeholder]="translate.get('auth.form.email')"></ion-input>
         </ion-item>
         <p text-center *ngIf="(profileForm.controls.email.hasError('required') || !profileForm.controls.email.valid) && hasError">{{ 'auth.form.error.email' | translate }}</p>
+        <ion-item no-lines margin-bottom class="textarea">
+          <ion-textarea type="text" formControlName="bio" [placeholder]="translate.get('auth.form.bio')" fz-elastic rows="3"></ion-textarea>
+        </ion-item>
+        <p text-center *ngIf="profileForm.controls.bio.hasError('required') && hasError">{{ 'auth.form.error.bio' | translate }}</p>
         <div text-center *ngIf="hasPassword">
           <button ion-button color="dark" (click)="changePassword()" [disabled]="!network.online()"><b>{{ 'auth.button.change' | translate }}</b></button>
         </div>
@@ -47,6 +51,7 @@
       </ion-item>
       <div text-center>
         <button ion-button color="primary" (click)="updateProfile()" [disabled]="!network.online()"><b>{{ 'auth.button.save' | translate }}</b></button>
+        <button ion-button color="dark" (click)="logout()" [disabled]="!network.online()"><b>{{ 'auth.button.logout' | translate }}</b></button>
       </div>
     </ion-list>
   </div>

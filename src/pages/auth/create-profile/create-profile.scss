@@ -55,9 +55,14 @@ page-create-profile {
         height: 6.5vh !important;
       }
 
+      ion-item.textarea {
+        height: auto !important;
+        ion-textarea {
+          margin-left: -0.75vw;
+        }
+      }
+
       div.button {
-        position: absolute;
-        bottom: 1.5vh;
         width: 100vw;
 
         button {
@@ -69,6 +74,12 @@ page-create-profile {
           margin-bottom: 1vh;
         }
       }
+    }
+  }
+
+  .android {
+    ion-textarea {
+      margin-left: 0 !important;
     }
   }
 }

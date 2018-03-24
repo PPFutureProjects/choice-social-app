@@ -23,6 +23,7 @@ import { File } from '@ionic-native/file';
 import { FCM } from '@ionic-native/fcm';
 import { Network } from '@ionic-native/network';
 import { Device } from '@ionic-native/device';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 import { Environment } from '../environment/environment';
 import { AuthProvider, AlertProvider, LoadingProvider, ToastProvider, TranslateProvider, FirestoreProvider, StorageProvider, NetworkProvider } from '../providers';
@@ -69,6 +70,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FCM,
     Network,
     Device,
+    PhotoViewer,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,
     AlertProvider,

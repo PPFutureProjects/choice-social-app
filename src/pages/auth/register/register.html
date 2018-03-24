@@ -21,9 +21,9 @@
         <div text-center margin-top>
           <button ion-button color="orange-button" (click)="register()" [disabled]="!network.online()"><b>{{ 'auth.button.register' | translate }}</b></button>
           <p>{{ 'auth.register.text' | translate }}</p>
-          <button ion-button color="facebook" (click)="registerWithFacebook()" [disabled]="!network.online()"><ion-icon name="logo-facebook"></ion-icon><b>{{ 'auth.button.facebook' | translate }}</b></button>
-          <!-- <button ion-button color="dark" (click)="registerWithGoogle()" [disabled]="!network.online()"><ion-icon name="logo-google"></ion-icon><b>{{ 'auth.button.google' | translate }}</b></button> -->
-          <!-- <button ion-button color="dark" (click)="registerWithTwitter()" [disabled]="!network.online()"><ion-icon name="logo-twitter"></ion-icon><b>{{ 'auth.button.twitter' | translate }}</b></button> -->
+          <button ion-button color="facebook" (click)="registerWithFacebook()" [disabled]="!network.online()"><ion-icon name="icon-facebook"></ion-icon><b>{{ 'auth.button.facebook' | translate }}</b></button>
+          <!-- <button ion-button color="dark" (click)="registerWithGoogle()" [disabled]="!network.online()"><ion-icon name="icon-google"></ion-icon><b>{{ 'auth.button.google' | translate }}</b></button> -->
+          <!-- <button ion-button color="dark" (click)="registerWithTwitter()" [disabled]="!network.online()"><ion-icon name="icon-twitter"></ion-icon><b>{{ 'auth.button.twitter' | translate }}</b></button> -->
           <p>{{ 'auth.register.question' | translate }}<span (click)="navCtrl.setRoot('LoginPage')">{{ 'auth.register.question.button' | translate }}</span></p>
         </div>
       </ion-list>

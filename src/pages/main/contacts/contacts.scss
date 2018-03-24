@@ -1,0 +1,112 @@
+page-contacts {
+  .scroll-content {
+    background-color: color($colors, light-gray);
+  }
+  ion-list {
+    margin-top: 0.5vh;
+
+    ion-list-header {
+      margin-left: 0.5vw;
+      font-size: 1.1rem;
+      border-bottom: solid 0.1vw color($colors, light-gray) !important;
+    }
+
+    ion-item {
+      border-bottom: solid 0.1vh color($colors, light-gray) !important;
+      color: color($colors, dark) !important;
+
+      img {
+        width: 4.5rem !important;
+        height: 4.5rem !important;
+      }
+
+      h2 {
+        font-weight: bolder !important;
+        font-size: 1.1rem !important;
+      }
+
+      p {
+        font-size: 1.2rem !important;
+      }
+
+      button {
+        width: 3.8rem !important;
+        height: 3.8rem !important;
+        border-radius: 0 !important;
+        ion-icon {
+          font-size: 2.5rem !important;
+          color: color($colors, light) !important;
+        }
+      }
+    }
+
+    ion-item.selected,
+    ion-item:active {
+      background: color($colors, light);
+      opacity: 0.75;
+    }
+  }
+
+  ion-searchbar {
+    margin-top: 0.5vh;
+  }
+
+  .searchbar-ios.searchbar-left-aligned .searchbar-search-icon {
+    margin-left: 87vw;
+  }
+
+  .searchbar-ios .searchbar-search-icon {
+    content: url(../assets/icons/search2.svg) !important;
+  }
+
+  .searchbar-input {
+    margin-left: -5vw;
+    width: 100vw;
+  }
+
+  .searchbar-clear-icon {
+    display: none !important;
+  }
+
+  div.empty {
+    position: absolute;
+    top: 10vh;
+    left: 50%;
+    width: 95vw;
+    margin-left: -47.5vw;
+    background: color($colors, light);
+    color: color($colors, gray);
+    padding-top: 4vh;
+    padding-bottom: 2vh;
+    ion-icon {
+      font-size: 6rem;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 0;
+    }
+    p {
+      margin-top: 1vh;
+      margin-left: auto;
+      margin-right: auto;
+      width: 75vw;
+      font-size: 1.25rem;
+    }
+    button {
+      color: color($colors, light);
+      font-size: 1.2rem;
+      width: 88vw;
+      height: 6.5vh;
+      border-radius: 0 !important;
+    }
+  }
+
+  .android {
+    .searchbar-input {
+      margin-left: -3vw !important;
+    }
+    .searchbar-ios.searchbar-left-aligned .searchbar-search-icon {
+      margin-left: 91vw !important;
+    }
+  }
+}

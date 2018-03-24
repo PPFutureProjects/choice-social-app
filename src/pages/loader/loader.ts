@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
@@ -17,7 +17,8 @@ export class LoaderPage {
     private splashScreen: SplashScreen,
     private storage: Storage,
     private auth: AuthProvider,
-    private firestore: FirestoreProvider) {
+    private firestore: FirestoreProvider,
+    private zone: NgZone) {
   }
 
   ionViewWillEnter() {
@@ -40,7 +41,10 @@ export class LoaderPage {
                 this.navCtrl.setRoot('CreateProfilePage');
                 this.splashScreen.hide();
               } else {
-                this.navCtrl.setRoot('HomePage');
+                // Data exists, proceed to TabsPage.
+                this.zone.run(() => {
+                  this.navCtrl.setRoot('TabsPage');
+                });
                 this.splashScreen.hide();
               }
             }).catch(() => { });

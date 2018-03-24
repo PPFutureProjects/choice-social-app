@@ -1,0 +1,97 @@
+page-view-profile {
+  .scroll-content {
+    background-color: color($colors, light-gray);
+  }
+
+  ion-item.profile {
+    border-bottom: solid 0.1vh color($colors, light-gray) !important;
+    color: color($colors, dark) !important;
+    height: 14vh;
+    background: color($colors, clear) !important;
+
+    img {
+      width: 6rem !important;
+      height: 6rem !important;
+    }
+
+    h2 {
+      font-weight: bolder !important;
+      font-size: 1.1rem !important;
+    }
+
+    p {
+      font-size: 1.2rem !important;
+    }
+
+    button {
+      width: 3.8rem !important;
+      height: 3.8rem !important;
+      border-radius: 0 !important;
+      margin-left: 2vw !important;
+      margin-right: 0 !important;
+
+      ion-icon {
+        font-size: 2.5rem !important;
+        color: color($colors, light) !important;
+      }
+    }
+  }
+
+  ion-list {
+    background: color($colors, light);
+
+    p.bio {
+      padding: 0;
+      margin: 0;
+      font-size: 1.25rem;
+      background: color($colors, light) !important;
+      color: color($colors, gray) !important;
+      padding: 0 4vw 2vh;
+    }
+
+    ion-list-header {
+      margin-left: 0.5vw;
+      font-size: 1.1rem !important;
+      border-bottom: 0 !important;
+    }
+
+    ion-item {
+      border-bottom: 0 !important;
+      border-top: solid 0.1vh color($colors, light-gray) !important;
+      color: color($colors, dark) !important;
+
+      img {
+        width: 4.5rem !important;
+        height: 4.5rem !important;
+      }
+
+      h2 {
+        font-weight: bolder !important;
+        font-size: 1.1rem !important;
+      }
+
+      p {
+        font-size: 1.2rem !important;
+      }
+
+      button {
+        width: 3.8rem !important;
+        height: 3.8rem !important;
+        border-radius: 0 !important;
+        margin-left: 2vw !important;
+        margin-right: 0 !important;
+
+        ion-icon {
+          font-size: 2.5rem !important;
+          color: color($colors, light) !important;
+        }
+      }
+    }
+
+    ion-item.selected,
+    ion-item:active {
+      background: color($colors, light);
+      opacity: 0.75;
+    }
+  }
+}

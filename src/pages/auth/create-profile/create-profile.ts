@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, ActionSheetController, Platform } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators, ValidatorFn } from '@angular/forms';
 import { AuthProvider, TranslateProvider, FirestoreProvider, LoadingProvider, StorageProvider, NetworkProvider, NotificationProvider } from '../../../providers';
 import { Keyboard } from '@ionic-native/keyboard';
 import { Camera } from '@ionic-native/camera';
+import { Device } from '@ionic-native/device';
 import { User } from '../../../models';
 import firebase from 'firebase';
 
@@ -13,6 +14,7 @@ import firebase from 'firebase';
   templateUrl: 'create-profile.html',
 })
 export class CreateProfilePage {
+  private android: boolean;
   private profileForm: FormGroup;
   private photo: string = 'assets/images/profile.png';
   private userId: string;
@@ -29,6 +31,9 @@ export class CreateProfilePage {
     Validators.required,
     Validators.email
   ]);
+  private bioValidator: ValidatorFn = Validators.compose([
+    Validators.required
+  ]);
 
   constructor(private navCtrl: NavController,
     private navParams: NavParams,
@@ -43,12 +48,15 @@ export class CreateProfilePage {
     private network: NetworkProvider,
     private notification: NotificationProvider,
     private keyboard: Keyboard,
-    private camera: Camera) {
+    private camera: Camera,
+    private device: Device,
+    private platform: Platform) {
     this.profileForm = formBuilder.group({
       firstName: ['', this.nameValidator],
       lastName: ['', this.nameValidator],
       username: ['', this.usernameValidator],
-      email: ['', this.emailValidator]
+      email: ['', this.emailValidator],
+      bio: ['', this.bioValidator]
     });
   }
 
@@ -73,6 +81,14 @@ export class CreateProfilePage {
   }
 
   ionViewDidLoad() {
+    this.platform.ready().then(() => {
+      // Check if device is running on android and adjust the scss accordingly.
+      if (this.device.platform == 'Android') {
+        this.android = true;
+      } else {
+        this.android = false;
+      }
+    }).catch(() => { });
     // Disable sideMenu.
     this.menuCtrl.enable(false);
     // Fill up the form with relevant user info based on the authenticated user on Firebase.
@@ -87,16 +103,18 @@ export class CreateProfilePage {
         firstName = user.displayName.substr(0, user.displayName.indexOf(' '));
         lastName = user.displayName.substr(user.displayName.indexOf(' ') + 1, user.displayName.length);
       }
+      console.log('SET VALUE', user);
       this.profileForm.setValue({
-        firstName: firstName,
-        lastName: lastName,
+        firstName: 'lhkjghjgfhdgfsdffdhfjgkjhj',
+        lastName: '',
         username: '',
         email: user.email
       });
+      console.log('Profile Form Geldi', this.profileForm)
     }).catch(() => { });
   }
 
-  ionViewWillLeave() {
+  ionViewWillUnload() {
     // Check if userData exists on Firestore. If no userData exists yet, delete the photo uploaded to save Firebase storage space.
     this.firestore.exists('users/' + this.userId).then(exists => {
       if (!exists) {
@@ -107,7 +125,9 @@ export class CreateProfilePage {
 
   private createProfile(): void {
     // Check if profileForm is valid and username is unique and proceed with creating the profile.
+    console.log('BURAYA GELDİ', this.profileForm)
     if (!this.profileForm.valid || !this.uniqueUsername) {
+      console.log('ERROR OLDU');
       this.hasError = true;
     } else {
       if (this.uniqueUsername) {
@@ -117,7 +137,7 @@ export class CreateProfilePage {
           // Formatting the first and last names to capitalized.
           let firstName = this.profileForm.value['firstName'].charAt(0).toUpperCase() + this.profileForm.value['firstName'].slice(1).toLowerCase();
           let lastName = this.profileForm.value['lastName'].charAt(0).toUpperCase() + this.profileForm.value['lastName'].slice(1).toLowerCase();
-          let user = new User(this.userId, this.profileForm.value['email'].toLowerCase(), firstName, lastName, this.photo, '@' + this.profileForm.value['username'].toLowerCase(), '', true);
+          let user = new User(this.userId, this.profileForm.value['email'].toLowerCase(), firstName, lastName, this.photo, '@' + this.profileForm.value['username'].toLowerCase(), this.profileForm.value['bio'], null, null, null, null, null, '', true);
           ref.set(user.object).then(() => {
             this.notification.init();
             this.loading.hide();

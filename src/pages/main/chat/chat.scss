@@ -1,0 +1,121 @@
+page-chat {
+  .scroll-content {
+    background-color: color($colors, light-gray) !important;
+  }
+  ion-row:first-child {
+    padding-top: 2.5vh;
+  }
+  ion-row {
+    padding-bottom: 2.5vh;
+    ion-col.date {
+      p {
+        font-size: 1.1rem !important;
+        width: 100vw !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        background: color($colors, clear) !important;
+      }
+      p.other {
+        padding-left: 16vw;
+      }
+    }
+    ion-col {
+      padding: 0 !important;
+      margin: 0 !important;
+      p {
+        hyphens: auto;
+        background: color($colors, light);
+        color: color($colors, gray);
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        margin-right: 14vw;
+        margin-left: -2vw;
+        padding: 2.25vh;
+        font-size: 1.4rem !important;
+      }
+    }
+    ion-col.profile {
+      img {
+        width: 8vw !important;
+        height: 8vw !important;
+        object-fit: cover !important;
+        border-radius: 100% !important;
+      }
+    }
+    ion-col.message {
+      img {
+        margin-left: -2vw;
+        width: 50vw !important;
+        height: auto !important;
+        border: solid 1vw color($colors, light);
+        object-fit: cover !important;
+      }
+    }
+    ion-col.sender {
+      p {
+        max-width: 70vw;
+        margin-right: 4vw;
+        background: color($colors, primary);
+        color: color($colors, light);
+      }
+      img {
+        margin-right: 4vw;
+        width: 50vw !important;
+        height: auto !important;
+        border: solid 1vw color($colors, light);
+        object-fit: cover !important;
+      }
+    }
+    p {
+      clear: both !important;
+    }
+  }
+  ion-footer {
+    min-height: 8vh;
+    max-height: auto;
+    background: color($colors, light);
+    div {
+      width: 92.5vw !important;
+      height: 6vh !important;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 1vh;
+      ion-textarea {
+        float: left;
+        background: color($colors, light-gray);
+        width: 82.5vw;
+        font-size: 1.2rem;
+        padding-left: 2vw;
+        padding-right: 2vw;
+      }
+      button {
+        margin: 0 !important;
+        margin-top: -0.25vh !important;
+        width: 10vw;
+        height: 6vh;
+        color: color($colors, gray) !important;
+        ion-icon {
+          font-size: 2rem !important;
+        }
+      }
+    }
+  }
+  .iPhoneX {
+      div {
+        height: 8vh !important;
+        margin-bottom: 2vh !important;
+        padding-bottom: 2vh !important;
+        button {
+          margin-top: -0.5vh !important;
+        }
+      }
+  }
+
+  .android {
+    div {
+      button {
+        height: 4vh !important;
+      }
+    }
+  }
+}

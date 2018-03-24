@@ -1,19 +1,6 @@
-page-home {
+page-requests {
   .scroll-content {
     background-color: color($colors, light-gray);
-  }
-
-  ion-navbar {
-    img {
-      width: 6.75vw;
-      height: 6.75vw;
-      border-radius: 100%;
-    }
-
-    img.activated,
-    img:active {
-      opacity: 0.75;
-    }
   }
   ion-list {
     margin-top: 0.5vh;
@@ -41,6 +28,18 @@ page-home {
       p {
         font-size: 1.2rem !important;
       }
+
+      button {
+        width: 3.8rem !important;
+        height: 3.8rem !important;
+        border-radius: 0 !important;
+        margin-left: 2vw !important;
+        margin-right: 0 !important;
+        ion-icon {
+          font-size: 2.5rem !important;
+          color: color($colors, light) !important;
+        }
+      }
     }
 
     ion-item.selected,
@@ -48,26 +47,5 @@ page-home {
       background: color($colors, light);
       opacity: 0.75;
     }
-  }
-
-  ion-searchbar {
-    margin-top: 0.5vh;
-  }
-
-  .searchbar-ios.searchbar-left-aligned .searchbar-search-icon {
-    margin-left: 87vw;
-  }
-
-  .searchbar-ios .searchbar-search-icon {
-    content: url(http://svgshare.com/i/4qs.svg) !important;
-  }
-
-  .searchbar-input {
-    margin-left: -5vw;
-    width: 100vw;
-  }
-
-  .searchbar-clear-icon {
-    display: none !important;
   }
 }

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, AlertController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, AlertController, ActionSheetController, App, Platform } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators, ValidatorFn } from '@angular/forms';
-import { AuthProvider, TranslateProvider, FirestoreProvider, LoadingProvider, ToastProvider, NetworkProvider, StorageProvider, NotificationProvider } from '../../../providers';
+import { AuthProvider, AlertProvider, TranslateProvider, FirestoreProvider, LoadingProvider, ToastProvider, NetworkProvider, StorageProvider, NotificationProvider } from '../../../providers';
 import { Keyboard } from '@ionic-native/keyboard';
 import { Camera } from '@ionic-native/camera';
+import { Device } from '@ionic-native/device';
 import { Subscription } from 'rxjs/Subscription';
 import { User } from '../../../models';
 import firebase from 'firebase';
@@ -14,6 +15,7 @@ import firebase from 'firebase';
   templateUrl: 'update-profile.html',
 })
 export class UpdateProfilePage {
+  private android: boolean;
   private profileForm: FormGroup;
   private user: User;
   private userId: string;
@@ -33,14 +35,19 @@ export class UpdateProfilePage {
     Validators.required,
     Validators.email
   ]);
+  private bioValidator: ValidatorFn = Validators.compose([
+    Validators.required
+  ]);
 
   constructor(private navCtrl: NavController,
+    private app: App,
     private navParams: NavParams,
     private menuCtrl: MenuController,
     private alertCtrl: AlertController,
     private actionSheetCtrl: ActionSheetController,
     private formBuilder: FormBuilder,
     private auth: AuthProvider,
+    private alert: AlertProvider,
     private translate: TranslateProvider,
     private firestore: FirestoreProvider,
     private loading: LoadingProvider,
@@ -49,12 +56,15 @@ export class UpdateProfilePage {
     private storage: StorageProvider,
     private notification: NotificationProvider,
     private keyboard: Keyboard,
-    private camera: Camera) {
+    private camera: Camera,
+    private device: Device,
+    private platform: Platform) {
     this.profileForm = formBuilder.group({
       firstName: ['', this.nameValidator],
       lastName: ['', this.nameValidator],
       username: ['', this.usernameValidator],
-      email: ['', this.emailValidator]
+      email: ['', this.emailValidator],
+      bio: ['', this.bioValidator]
     });
   }
 
@@ -79,8 +89,16 @@ export class UpdateProfilePage {
   }
 
   ionViewDidLoad() {
+    this.platform.ready().then(() => {
+      // Check if device is running on android and adjust the scss accordingly.
+      if (this.device.platform == 'Android') {
+        this.android = true;
+      } else {
+        this.android = false;
+      }
+    }).catch(() => { });
     // Set placeholder photo, while the user data is loading.
-    this.user = new User('', '', '', '', 'assets/images/profile.png', '', '', true);
+    this.user = new User('', '', '', '', 'assets/images/profile.png', '', '', [], [], [], null, null, '', true);
 
     this.auth.getUser().then((user: firebase.User) => {
       // Check if user is logged in using email and password and show the change password button.
@@ -97,7 +115,8 @@ export class UpdateProfilePage {
             firstName: user.firstName,
             lastName: user.lastName,
             username: user.username.substring(1, user.username.length),
-            email: user.email
+            email: user.email,
+            bio: user.bio
           });
           this.uniqueUsername = true;
         });
@@ -105,7 +124,7 @@ export class UpdateProfilePage {
     }).catch(() => { });
   }
 
-  ionViewWillLeave() {
+  ionViewWillUnload() {
     // Unsubscribe to Subscription.
     if (this.subscription)
       this.subscription.unsubscribe();
@@ -237,7 +256,7 @@ export class UpdateProfilePage {
           let firstName = this.profileForm.value['firstName'].charAt(0).toUpperCase() + this.profileForm.value['firstName'].slice(1).toLowerCase();
           let lastName = this.profileForm.value['lastName'].charAt(0).toUpperCase() + this.profileForm.value['lastName'].slice(1).toLowerCase();
           let pushToken: string;
-          let user = new User(this.userId, this.profileForm.value['email'].toLowerCase(), firstName, lastName, this.user.photo, '@' + this.profileForm.value['username'].toLowerCase(), '', this.hasPushToken);
+          let user = new User(this.userId, this.profileForm.value['email'].toLowerCase(), firstName, lastName, this.user.photo, '@' + this.profileForm.value['username'].toLowerCase(), this.profileForm.value['bio'], this.user.contacts, this.user.requestsSent, this.user.requestsReceived, this.user.conversations, this.user.groups, '', this.hasPushToken);
           ref.update({
             userId: user.userId,
             email: user.email,
@@ -245,6 +264,7 @@ export class UpdateProfilePage {
             lastName: user.lastName,
             photo: user.photo,
             username: user.username,
+            bio: user.bio,
             notifications: this.hasPushToken
           }).then(() => {
             // Initialize pushToken to receive push notifications if the user enabled them, otherwise clear pushToken.
@@ -261,4 +281,15 @@ export class UpdateProfilePage {
     }
   }
 
+  private logout(): void {
+    this.alert.showConfirm(this.translate.get('auth.menu.logout.title'), this.translate.get('auth.menu.logout.text'), this.translate.get('auth.menu.logout.button.cancel'), this.translate.get('auth.menu.logout.button.logout')).then(confirm => {
+      if (confirm) {
+        this.auth.logout().then(() => {
+          this.menuCtrl.close();
+          this.notification.destroy();
+          this.app.getRootNavs()[0].setRoot('LoginPage');
+        }).catch(() => { });
+      }
+    }).catch(() => { });
+  }
 }

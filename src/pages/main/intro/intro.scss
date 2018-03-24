@@ -20,7 +20,7 @@ page-intro {
   }
 
   ion-slides {
-    background: transparent !important;
+    background: transparent;
     height: 72.5vh;
     width: 88vw;
     margin-left: auto;
@@ -29,7 +29,7 @@ page-intro {
     ion-slide {
       color: color($colors, dark);
       img {
-        width: 75vw !important;
+        width: 80% !important;
       }
       h3 {
         font-size: 3.2rem;
