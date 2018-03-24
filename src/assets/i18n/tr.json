@@ -96,7 +96,7 @@
 
   "storage.upload.error": "Üzgünüz, fotoğraf yüklenirken bir hata oluştu.",
 
-  "contact.search.title": "Search Contact",
+  "contact.search.title": "Kullanıcıları Ara",
   "contact.search.empty.nouserfound.title": "No User Found",
   "contact.search.empty.nouserfound.text": "Uh-oh! Sorry but we couldn't find any user with that name or username",
   "contact.search.empty.nousers.title": "No Users",
@@ -115,7 +115,7 @@
   "contact.requests.received": "RECEIVED",
   "contact.requests.sent": "SENT",
 
-  "chats.nav.title": "Chats",
+  "chats.nav.title": "Mesajlaşma",
   "chats.new.title": "New Conversation",
   "chats.new.empty.nocontacts.text": "You have no contacts yet. Once you have a contact, you may start a conversation with them",
   "chats.new.empty.nocontacts.button": "MANAGE CONTACTS",
@@ -131,9 +131,9 @@
 
   "chats.main.empty.noconversation.title": "No Conversation Found",
   "chats.main.empty.noconversation.text": "Uh-oh! Sorry but we couldn't find an existing conversation with that user",
-  "chats.main.empty.noconversations.title": "No Conversations",
-  "chats.main.empty.noconversations.text": "You have no conversations yet. Once you have any conversation, they will show up here",
-  "chats.main.empty.noconversations.button": "START A CONVERSATION",
+  "chats.main.empty.noconversations.title": "Buralar boş :(",
+  "chats.main.empty.noconversations.text": "Henüz kimseyle mesajlaşmaya başlamamışsın, hemen diğer zigicilere yazarak onların şahsi düşüncelerini alabilirsin",
+  "chats.main.empty.noconversations.button": "HEMEN ZİGİLİLERE YAZ",
 
   "groups.nav.title": "Groups",
   "groups.new.title": "New Group",

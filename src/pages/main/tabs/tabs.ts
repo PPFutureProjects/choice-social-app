@@ -14,8 +14,8 @@ export class TabsPage {
   tab1Root: string = 'ChatsPage';
   tab2Root: string = 'GroupsPage';
   tab3Root: string = 'ContactsPage';
-  tab4Root: string = 'FeedPage';
-  // tab4Root: string = 'UpdateProfilePage';
+  //tab4Root: string = 'FeedPage';
+  tab4Root: string = 'UpdateProfilePage';
 
   private user: User;
   private subscriptions: Subscription[];
